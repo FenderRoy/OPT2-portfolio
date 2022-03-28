@@ -25,12 +25,13 @@ public class main {
         agenda.nieuweAfspraak("01/06", Jan, Rosa);
         agenda.nieuweAfspraak("05/08", Sander, Rosa);
         agenda.nieuweAfspraak("01/01", Kennington, Rosa);
-
         agenda.nieuweAfspraak("07/10", Kennington, Rosa);
 
-        agenda.printAfspraken();
+        //agenda.printAfspraken();
 
-
+        for(Afspraak afspraak : agenda.getAfspraken(Kennington)){
+            afspraak.printAfspraakInformatie();
+        }
 
     }
 

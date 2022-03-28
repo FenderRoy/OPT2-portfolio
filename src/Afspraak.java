@@ -14,14 +14,6 @@ public class Afspraak implements Comparable<Afspraak> {
     private int dag;
     private int maand;
 
-    public Client getClient() {
-        return client;
-    }
-
-    public Zorgpartner getZorgpartner() {
-        return zorgpartner;
-    }
-
     public Afspraak(Client client, Zorgpartner zorgpartner, String datum){
         this.client = client;
         this.zorgpartner = zorgpartner;
@@ -31,6 +23,14 @@ public class Afspraak implements Comparable<Afspraak> {
         this.dag = scanner.nextInt();
         this.maand = scanner.nextInt();
         scanner.close();
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public Zorgpartner getZorgpartner() {
+        return zorgpartner;
     }
 
     public String getDatum() {

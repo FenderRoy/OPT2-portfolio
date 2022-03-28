@@ -1,4 +1,5 @@
 import people.Client;
+import people.Persoon;
 import people.Zorgpartner;
 
 import java.util.ArrayList;
@@ -31,6 +32,19 @@ public class Agenda {
     public ArrayList<Afspraak> getAfspraken() {
         sorteerAfspraken();
         return afspraken;
+    }
+
+    public ArrayList<Afspraak> getAfspraken(Client client){
+        sorteerAfspraken();
+        ArrayList<Afspraak> nieuweAfspraken = new ArrayList<>();
+
+        for(Afspraak afspraak : afspraken){
+            if(afspraak.getClient() == client){
+                nieuweAfspraken.add(afspraak);
+            }
+        }
+
+        return nieuweAfspraken;
     }
 
     private void sorteerAfspraken(){
