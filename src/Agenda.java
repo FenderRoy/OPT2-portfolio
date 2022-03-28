@@ -43,6 +43,10 @@ public class Agenda {
         this.afspraken.add(new Afspraak(client, zorgpartner, datum));
     }
 
+    public void nieuweAfspraak(Afspraak afspraak){
+        this.afspraken.add(afspraak);
+    }
+
     public void printAfspraken(){
 
         sorteerAfspraken();
