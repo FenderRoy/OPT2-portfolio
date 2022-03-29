@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AgendaTest {
 
+
+    //Testen op volgorde.
     @Test
     void testGetAfspraken() {
 
@@ -34,6 +36,7 @@ class AgendaTest {
 
     }
 
+    //Testen op maand
     @Test
     void testGetAfsprakenMaand() {
 
