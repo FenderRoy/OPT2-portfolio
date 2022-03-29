@@ -27,11 +27,7 @@ public class main {
         agenda.nieuweAfspraak("01/01", Kennington, Rosa);
         agenda.nieuweAfspraak("07/10", Kennington, Rosa);
 
-        //agenda.printAfspraken();
-
-        for(Afspraak afspraak : agenda.getAfspraken(Kennington)){
-            afspraak.printAfspraakInformatie();
-        }
+        agenda.printAfspraken();
 
     }
 
