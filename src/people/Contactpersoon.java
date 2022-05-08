@@ -1,10 +1,10 @@
 package people;
 
-public class Dichtbijzijnde extends Persoon {
+public class Contactpersoon extends Persoon {
 
     private Client client;
 
-    public Dichtbijzijnde(String naam, String adress, String telefoonNummer) {
+    public Contactpersoon(String naam, String adress, String telefoonNummer) {
         super(naam, adress, telefoonNummer);
     }
 

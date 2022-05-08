@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Client extends Persoon {
 
     private Zorgpartner zorgpartner;
-    private ArrayList<Dichtbijzijnde> dichtbijzijnden;
+    private ArrayList<Contactpersoon> dichtbijzijnden;
 
     public Client(String naam, String adress, String telefoonNummer) {
         super(naam, adress, telefoonNummer);
@@ -20,11 +20,11 @@ public class Client extends Persoon {
         this.zorgpartner = zorgpartner;
     }
 
-    public ArrayList<Dichtbijzijnde> getDichtbijzijnden() {
+    public ArrayList<Contactpersoon> getDichtbijzijnden() {
         return dichtbijzijnden;
     }
 
-    public void addDichtbijzijnde(Dichtbijzijnde dichtbijzijnde){
+    public void addDichtbijzijnde(Contactpersoon dichtbijzijnde){
         this.dichtbijzijnden.add(dichtbijzijnde);
     }
 }

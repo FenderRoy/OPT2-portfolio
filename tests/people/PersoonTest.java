@@ -8,7 +8,7 @@ class PersoonTest {
 
     @Test
     void testCreatePerson(){
-        Persoon nieuwPersoon = new Dichtbijzijnde("Hans", "Teststraat 5", "0612345678");
+        Persoon nieuwPersoon = new Contactpersoon("Hans", "Teststraat 5", "0612345678");
 
         assertEquals(nieuwPersoon.getNaam(), "Hans");
         assertEquals(nieuwPersoon.getAdress(), "Teststraat 5");

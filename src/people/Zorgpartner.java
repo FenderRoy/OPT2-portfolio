@@ -6,7 +6,7 @@ public class Zorgpartner extends Persoon {
 
 
 
-    ArrayList<Client> cliënten;
+    private ArrayList<Client> cliënten;
 
     public Zorgpartner(String naam, String adress, String telefoonNummer) {
         super(naam, adress, telefoonNummer);

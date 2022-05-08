@@ -26,7 +26,6 @@ public class Agenda {
         }
 
         return nieuweAfspraken;
-
     }
 
     public ArrayList<Afspraak> getAfspraken() {
