@@ -8,13 +8,11 @@ public class Afspraak implements Comparable<Afspraak> {
 
     private Client client;
     private Zorgpartner zorgpartner;
-
     private String datum;
-
     private int dag;
     private int maand;
 
-    public Afspraak(Client client, Zorgpartner zorgpartner, String datum){
+    public Afspraak(Client client, Zorgpartner zorgpartner, String datum) {
         this.client = client;
         this.zorgpartner = zorgpartner;
         this.datum = datum;
@@ -53,26 +51,18 @@ public class Afspraak implements Comparable<Afspraak> {
 
     @Override
     public int compareTo(Afspraak afspraak) {
-
         if(getMaand() > afspraak.getMaand()){
             return 1;
-
-        } else if(getMaand() < afspraak.getMaand()){
-            return -1;
-
-        } else if(getMaand() == afspraak.getMaand()){
-
-            if(getDag() > afspraak.getDag()){
-                return 1;
-
-            } else if(getDag() < afspraak.getDag()){
-                return -1;
-
-            } else {
-                return 0;
-            }
         }
-
+        if(getMaand() < afspraak.getMaand()){
+            return -1;
+        }
+        if(getDag() > afspraak.getDag()){
+            return 1;
+        }
+        if(getDag() < afspraak.getDag()){
+            return -1;
+        }
         return 0;
     }
 }

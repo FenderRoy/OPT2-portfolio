@@ -1,10 +1,9 @@
 import people.Client;
-import people.Persoon;
 import people.Zorgpartner;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.function.Function;
 
 public class Agenda {
 
@@ -14,60 +13,46 @@ public class Agenda {
         afspraken = new ArrayList<>();
     }
 
-    public ArrayList<Afspraak> getAfspraken(int maand) {
-        sorteerAfspraken();
-
-        ArrayList<Afspraak> nieuweAfspraken = new ArrayList<>();
-
-        for(Afspraak afspraak : afspraken){
-            if(afspraak.getMaand() == maand){
-                nieuweAfspraken.add(afspraak);
-            }
-        }
-
-        return nieuweAfspraken;
-    }
-
     public ArrayList<Afspraak> getAfspraken() {
-        sorteerAfspraken();
         return afspraken;
     }
 
-    public ArrayList<Afspraak> getAfspraken(Client client){
-        sorteerAfspraken();
+    private ArrayList<Afspraak> getCertainAfspraken(Function<Afspraak, Boolean> f) {
         ArrayList<Afspraak> nieuweAfspraken = new ArrayList<>();
 
         for(Afspraak afspraak : afspraken){
-            if(afspraak.getClient() == client){
+            if(f.apply(afspraak)){
                 nieuweAfspraken.add(afspraak);
             }
         }
 
         return nieuweAfspraken;
     }
+    public ArrayList<Afspraak> getAfspraken(int maand) {
+        return getCertainAfspraken(e -> e.getMaand() == maand);
+    }
+
+    public ArrayList<Afspraak> getAfspraken(Client client){
+        return getCertainAfspraken(e -> e.getClient() == client);
+    }
 
     private void sorteerAfspraken(){
-
         Collections.sort(afspraken);
-
     }
 
     public void nieuweAfspraak(String datum, Client client, Zorgpartner zorgpartner){
-        this.afspraken.add(new Afspraak(client, zorgpartner, datum));
+        nieuweAfspraak(new Afspraak(client, zorgpartner, datum));
     }
 
     public void nieuweAfspraak(Afspraak afspraak){
         this.afspraken.add(afspraak);
+        sorteerAfspraken();
     }
 
     public void printAfspraken(){
-
-        sorteerAfspraken();
-
         for(Afspraak afspraak : afspraken){
             afspraak.printAfspraakInformatie();
         }
-
     }
 
 }

@@ -5,8 +5,6 @@ import people.Zorgpartner;
 public class main {
 
     public static void main(String[] args){
-
-
         Client Art = new Client("Art", "Floridastreet 5", "0612345678");
         Client Kennington = new Client("Kennington", "RoshesterStreet 12", "0687654321");
         Client Jan = new Client("Jan", "straatnaam 102", "1234");
@@ -16,7 +14,6 @@ public class main {
         Hans.setClient(Kennington);
 
         Zorgpartner Rosa = new Zorgpartner("Rosa", "zorgpartnerstraat 1", "1223124124");
-
 
         Agenda agenda = new Agenda();
 
@@ -28,9 +25,7 @@ public class main {
         agenda.nieuweAfspraak("01/01", Kennington, Rosa);
         agenda.nieuweAfspraak("07/10", Kennington, Rosa);
 
-
         agenda.printAfspraken();
-
     }
 
 }
