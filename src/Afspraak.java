@@ -43,12 +43,6 @@ public class Afspraak implements Comparable<Afspraak> {
         return maand;
     }
 
-    public void printAfspraakInformatie(){
-        System.out.println("Client: "+client.getNaam()+"\n" +
-                "Zorgpartner: "+zorgpartner.getNaam()+"\n" +
-                "Datum: "+datum+"\n");
-    }
-
     @Override
     public int compareTo(Afspraak afspraak) {
         if(getMaand() > afspraak.getMaand()){

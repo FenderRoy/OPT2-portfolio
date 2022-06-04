@@ -14,18 +14,22 @@ public class main {
         Hans.setClient(Kennington);
 
         Zorgpartner Rosa = new Zorgpartner("Rosa", "zorgpartnerstraat 1", "1223124124");
+        Zorgpartner Bob = new Zorgpartner("Bob", "zorgpartnerstraat 162", "4552345233");
 
         Agenda agenda = new Agenda();
 
-        agenda.nieuweAfspraak("01/08", Art, Rosa);
-        agenda.nieuweAfspraak("07/08", Art, Rosa);
+        agenda.nieuweAfspraak("01/08", Art, Bob);
+        agenda.nieuweAfspraak("07/08", Art, Bob);
         agenda.nieuweAfspraak("01/04", Kennington, Rosa);
         agenda.nieuweAfspraak("01/06", Jan, Rosa);
         agenda.nieuweAfspraak("05/08", Sander, Rosa);
         agenda.nieuweAfspraak("01/01", Kennington, Rosa);
-        agenda.nieuweAfspraak("07/10", Kennington, Rosa);
+        agenda.nieuweAfspraak("07/10", Kennington, Bob);
 
-        agenda.printAfspraken();
+
+        Printer consolePrinter = new ConsolePrinter();
+
+        consolePrinter.printAgenda(agenda);
     }
 
 }

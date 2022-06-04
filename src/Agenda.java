@@ -1,4 +1,5 @@
 import people.Client;
+import people.Persoon;
 import people.Zorgpartner;
 
 import java.util.ArrayList;
@@ -32,8 +33,8 @@ public class Agenda {
         return getCertainAfspraken(e -> e.getMaand() == maand);
     }
 
-    public ArrayList<Afspraak> getAfspraken(Client client){
-        return getCertainAfspraken(e -> e.getClient() == client);
+    public ArrayList<Afspraak> getAfspraken(Persoon persoon){
+        return getCertainAfspraken(e -> e.getClient() == persoon || e.getZorgpartner() == persoon);
     }
 
     private void sorteerAfspraken(){
@@ -47,12 +48,6 @@ public class Agenda {
     public void nieuweAfspraak(Afspraak afspraak){
         this.afspraken.add(afspraak);
         sorteerAfspraken();
-    }
-
-    public void printAfspraken(){
-        for(Afspraak afspraak : afspraken){
-            afspraak.printAfspraakInformatie();
-        }
     }
 
 }
