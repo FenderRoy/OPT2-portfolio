@@ -1,9 +1,6 @@
 import people.Client;
 import people.Zorgpartner;
 
-import java.util.Comparator;
-import java.util.Scanner;
-
 public class Afspraak implements Comparable<Afspraak> {
 
     private Client client;
@@ -11,16 +8,17 @@ public class Afspraak implements Comparable<Afspraak> {
     private String datum;
     private int dag;
     private int maand;
+    private int jaar;
 
     public Afspraak(Client client, Zorgpartner zorgpartner, String datum) {
         this.client = client;
         this.zorgpartner = zorgpartner;
-        this.datum = datum;
 
-        Scanner scanner = new Scanner(datum.replace("/", " "));
-        this.dag = scanner.nextInt();
-        this.maand = scanner.nextInt();
-        scanner.close();
+        DatumConverter converter = new DatumConverter(datum);
+        this.dag = converter.getDag();
+        this.maand = converter.getMaand();
+        this.jaar = converter.getJaar();
+        this.datum = converter.getDatum();
     }
 
     public Client getClient() {
@@ -43,8 +41,18 @@ public class Afspraak implements Comparable<Afspraak> {
         return maand;
     }
 
+    public int getJaar() {
+        return jaar;
+    }
+
     @Override
     public int compareTo(Afspraak afspraak) {
+        if(getJaar() > afspraak.getJaar()){
+            return 1;
+        }
+        if(getJaar() < afspraak.getJaar()){
+            return -1;
+        }
         if(getMaand() > afspraak.getMaand()){
             return 1;
         }
