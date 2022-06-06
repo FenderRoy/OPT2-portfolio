@@ -8,7 +8,7 @@ public abstract class Printer {
     public abstract void printAfspraak(Afspraak afspraak);
 
     public void printAgenda(Agenda agenda){
-        printAgenda(agenda);
+        printAgenda(agenda.getAfspraken());
     }
 
     public void printAgenda(Agenda agenda, int maand){
