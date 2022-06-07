@@ -9,9 +9,10 @@ public class ConsolePrinter extends Printer {
 
     @Override
     public void printAfspraak(Afspraak afspraak, IFormat format){
-        System.out.println("Client: "+afspraak.getClient().getNaam()+"\n" +
-                "Zorgpartner: "+afspraak.getZorgpartner().getNaam()+"\n" +
-                "Helpers.Datum: "+afspraak.getDatum(format)+"\n");
+        String[] keywords = format.getKeywords();
+        System.out.println(keywords[0]+": "+format.getNaamFormat(afspraak.getClient().getNaam())+"\n" +
+                keywords[1]+": "+format.getNaamFormat(afspraak.getZorgpartner().getNaam())+"\n" +
+                keywords[2]+": "+afspraak.getDatum(format)+"\n");
     }
 
     @Override

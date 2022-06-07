@@ -12,13 +12,12 @@ public class Afspraak implements Comparable<Afspraak> {
 
     private Client client;
     private Zorgpartner zorgpartner;
-    Datum date;
+    private Datum date;
 
     public Afspraak(Client client, Zorgpartner zorgpartner, String datum) {
         this.client = client;
         this.zorgpartner = zorgpartner;
-
-        date = new Datum(datum);
+        this.date = new Datum(datum);
     }
 
     public Client getClient() {
