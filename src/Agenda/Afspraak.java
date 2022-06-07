@@ -44,7 +44,6 @@ public class Afspraak implements Comparable<Afspraak> {
         return date.getJaar();
     }
 
-
     @Override
     public int compareTo(Afspraak afspraak) {
         return CompareFunctions.compareToChain(this, afspraak, Arrays.asList(

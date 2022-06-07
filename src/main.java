@@ -36,7 +36,7 @@ public class main {
 
         Printer consolePrinter = new ConsolePrinter();
 
-        consolePrinter.printAgenda(agenda, new NederlandsFormat());
+        consolePrinter.printAgenda(agenda, new EuropeanFormat(), Rosa);
     }
 
 }

@@ -16,6 +16,6 @@ public class EuropeanWrittenFormat implements IFormat{
 
     @Override
     public String[] getKeywords() {
-        return new String[]{"Client","Zorgpartner","Datum"};
+        return new String[]{"Client","Caretaker","Date"};
     }
 }

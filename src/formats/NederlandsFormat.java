@@ -8,7 +8,7 @@ public class NederlandsFormat implements IFormat{
 
     @Override
     public String getNaamFormat(String naam) {
-        return new EuropeanFormat().getNaamFormat(naam);
+        return naam;
     }
 
     @Override
