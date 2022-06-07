@@ -1,3 +1,4 @@
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -23,7 +24,6 @@ public class DatumConverter {
         } else{
             this.jaar = getCurrentJaar();
         }
-
         scanner.close();
     }
 
@@ -39,12 +39,16 @@ public class DatumConverter {
         return jaar;
     }
 
-    public String getDatum(){
-        return getDag()+"/"+getMaand()+"/"+getJaar();
+    public String getDatum(String format){
+        switch(format){
+            case "EU":  return getDag()+"/"+getMaand()+"/"+getJaar();
+            case "US": return getMaand()+"/"+getDag()+"/"+getJaar();
+        }
+        return "no valid format";
     }
 
     private int getCurrentJaar(){
-        return new Date().getYear() + 1900;
+        return Calendar.getInstance().get(Calendar.YEAR);
     }
 
 

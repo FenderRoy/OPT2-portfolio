@@ -18,7 +18,7 @@ public class Afspraak implements Comparable<Afspraak> {
         this.dag = converter.getDag();
         this.maand = converter.getMaand();
         this.jaar = converter.getJaar();
-        this.datum = converter.getDatum();
+        this.datum = converter.getDatum("EU");
     }
 
     public Client getClient() {
