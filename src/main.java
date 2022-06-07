@@ -27,6 +27,8 @@ public class main {
         agenda.nieuweAfspraak("01/06", Jan, Rosa);
         agenda.nieuweAfspraak("05/08/2023", Sander, Rosa);
         agenda.nieuweAfspraak("01/01", Kennington, Rosa);
+
+        agenda.nieuweAfspraak("07/10", Jan, Bob);
         agenda.nieuweAfspraak("07/10", Kennington, Bob);
 
 

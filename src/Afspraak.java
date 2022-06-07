@@ -1,6 +1,12 @@
 import people.Client;
 import people.Zorgpartner;
 
+import java.text.spi.DateFormatSymbolsProvider;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Function;
+
 public class Afspraak implements Comparable<Afspraak> {
 
     private Client client;
@@ -45,26 +51,15 @@ public class Afspraak implements Comparable<Afspraak> {
         return jaar;
     }
 
+
     @Override
     public int compareTo(Afspraak afspraak) {
-        if(getJaar() > afspraak.getJaar()){
-            return 1;
-        }
-        if(getJaar() < afspraak.getJaar()){
-            return -1;
-        }
-        if(getMaand() > afspraak.getMaand()){
-            return 1;
-        }
-        if(getMaand() < afspraak.getMaand()){
-            return -1;
-        }
-        if(getDag() > afspraak.getDag()){
-            return 1;
-        }
-        if(getDag() < afspraak.getDag()){
-            return -1;
-        }
-        return 0;
+        return CompareFunctions.compareToChain(this, afspraak, Arrays.asList(
+                Afspraak::getJaar,
+                Afspraak::getMaand,
+                Afspraak::getDag,
+                A -> A.getClient().getNaam(),
+                A -> A.getZorgpartner().getNaam())
+        );
     }
 }
