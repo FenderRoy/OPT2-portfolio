@@ -1,3 +1,5 @@
+package Agenda;
+
 import people.Client;
 import people.Persoon;
 import people.Zorgpartner;

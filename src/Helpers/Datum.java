@@ -1,20 +1,19 @@
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Scanner;
+package Helpers;
 
-public class DatumConverter {
+import formats.IFormat;
 
-    private String datum;
+import java.util.*;
+
+public class Datum {
     private int dag;
     private int maand;
     private int jaar;
 
-    public DatumConverter(String datum){
-        this.datum = datum;
-        convertDatum();
+    public Datum(String datum){
+        convertDatum( datum);
     }
 
-    private void convertDatum(){
+    private void convertDatum(String datum){
         Scanner scanner = new Scanner(datum.replace("/", " "));
         this.dag = scanner.nextInt();
         this.maand = scanner.nextInt();
@@ -39,12 +38,8 @@ public class DatumConverter {
         return jaar;
     }
 
-    public String getDatum(String format){
-        switch(format){
-            case "EU":  return getDag()+"/"+getMaand()+"/"+getJaar();
-            case "US": return getMaand()+"/"+getDag()+"/"+getJaar();
-        }
-        return "no valid format";
+    public String getDatum(IFormat format){
+        return format.dateToString(getDag(), getMaand(), getJaar());
     }
 
     private int getCurrentJaar(){

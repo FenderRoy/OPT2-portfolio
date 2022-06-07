@@ -1,30 +1,24 @@
+package Agenda;
+
+import Generic.CompareFunctions;
+import Helpers.Datum;
+import formats.IFormat;
 import people.Client;
 import people.Zorgpartner;
 
-import java.text.spi.DateFormatSymbolsProvider;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.function.Function;
 
 public class Afspraak implements Comparable<Afspraak> {
 
     private Client client;
     private Zorgpartner zorgpartner;
-    private String datum;
-    private int dag;
-    private int maand;
-    private int jaar;
+    Datum date;
 
     public Afspraak(Client client, Zorgpartner zorgpartner, String datum) {
         this.client = client;
         this.zorgpartner = zorgpartner;
 
-        DatumConverter converter = new DatumConverter(datum);
-        this.dag = converter.getDag();
-        this.maand = converter.getMaand();
-        this.jaar = converter.getJaar();
-        this.datum = converter.getDatum("EU");
+        date = new Datum(datum);
     }
 
     public Client getClient() {
@@ -35,20 +29,20 @@ public class Afspraak implements Comparable<Afspraak> {
         return zorgpartner;
     }
 
-    public String getDatum() {
-        return datum;
+    public String getDatum(IFormat format) {
+        return date.getDatum(format);
     }
 
     public int getDag() {
-        return dag;
+        return date.getDag();
     }
 
     public int getMaand() {
-        return maand;
+        return date.getMaand();
     }
 
     public int getJaar() {
-        return jaar;
+        return date.getJaar();
     }
 
 

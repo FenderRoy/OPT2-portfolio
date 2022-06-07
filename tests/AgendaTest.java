@@ -1,3 +1,5 @@
+import Agenda.Afspraak;
+import Agenda.Agenda;
 import org.junit.jupiter.api.Test;
 import people.Client;
 import people.Zorgpartner;

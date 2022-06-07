@@ -1,3 +1,5 @@
+package Generic;
+
 import java.util.List;
 import java.util.function.Function;
 
@@ -10,4 +12,7 @@ public class CompareFunctions {
         }
         return 0;
     }
+
+
+
 }
