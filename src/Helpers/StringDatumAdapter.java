@@ -3,8 +3,7 @@ package Helpers;
 import formats.IFormat;
 
 import java.util.*;
-
-public class Datum {
+public class Datum implements IDatum {
     private int dag;
     private int maand;
     private int jaar;
