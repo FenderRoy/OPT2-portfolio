@@ -6,7 +6,7 @@ public class ConsolePrinter extends Printer {
     public void printAfspraak(Afspraak afspraak){
         System.out.println("Client: "+afspraak.getClient().getNaam()+"\n" +
                 "Zorgpartner: "+afspraak.getZorgpartner().getNaam()+"\n" +
-                "Datum: "+afspraak.getDatum()+"\n");
+                "IDatum: "+afspraak.getDatum()+"\n");
     }
 
     @Override

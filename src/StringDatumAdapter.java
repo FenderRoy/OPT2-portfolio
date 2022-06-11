@@ -1,19 +1,16 @@
 import java.util.Date;
 import java.util.Scanner;
 
-public class DatumConverter {
-
-    private String datum;
+public class StringDatumAdapter implements IDatum {
     private int dag;
     private int maand;
     private int jaar;
 
-    public DatumConverter(String datum){
-        this.datum = datum;
-        convertDatum();
+    public StringDatumAdapter(String datum){
+        convertDatum(datum);
     }
 
-    private void convertDatum(){
+    private void convertDatum(String datum){
         Scanner scanner = new Scanner(datum.replace("/", " "));
         this.dag = scanner.nextInt();
         this.maand = scanner.nextInt();

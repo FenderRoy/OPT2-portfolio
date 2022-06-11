@@ -5,20 +5,13 @@ public class Afspraak implements Comparable<Afspraak> {
 
     private Client client;
     private Zorgpartner zorgpartner;
-    private String datum;
-    private int dag;
-    private int maand;
-    private int jaar;
+    IDatum datum;
 
-    public Afspraak(Client client, Zorgpartner zorgpartner, String datum) {
+    public Afspraak(Client client, Zorgpartner zorgpartner, String datumString) {
         this.client = client;
         this.zorgpartner = zorgpartner;
 
-        DatumConverter converter = new DatumConverter(datum);
-        this.dag = converter.getDag();
-        this.maand = converter.getMaand();
-        this.jaar = converter.getJaar();
-        this.datum = converter.getDatum();
+        datum = new StringDatumAdapter(datumString);
     }
 
     public Client getClient() {
@@ -30,19 +23,19 @@ public class Afspraak implements Comparable<Afspraak> {
     }
 
     public String getDatum() {
-        return datum;
+        return datum.getDatum();
     }
 
     public int getDag() {
-        return dag;
+        return datum.getDag();
     }
 
     public int getMaand() {
-        return maand;
+        return datum.getMaand();
     }
 
     public int getJaar() {
-        return jaar;
+        return datum.getJaar();
     }
 
     @Override
