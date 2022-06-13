@@ -34,9 +34,9 @@ public class main {
         agenda.nieuweAfspraak("07/10", Kennington, Bob);
 
 
-        Printer consolePrinter = new ConsolePrinter();
+        Printer consolePrinter = new ConsolePrinter(new UnitedStatesWrittenFormat());
 
-        consolePrinter.printAgenda(agenda, new EuropeanFormat(), Rosa);
+        consolePrinter.printAgenda(agenda, 8);
     }
 
 }

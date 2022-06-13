@@ -1,7 +1,8 @@
 package Agenda;
 
 import Generic.CompareFunctions;
-import Helpers.Datum;
+import Datums.IDatum;
+import Datums.StringDatumAdapter;
 import formats.IFormat;
 import people.Client;
 import people.Zorgpartner;
@@ -12,12 +13,12 @@ public class Afspraak implements Comparable<Afspraak> {
 
     private Client client;
     private Zorgpartner zorgpartner;
-    private Datum date;
+    private IDatum datum;
 
     public Afspraak(Client client, Zorgpartner zorgpartner, String datum) {
         this.client = client;
         this.zorgpartner = zorgpartner;
-        this.date = new Datum(datum);
+        this.datum = new StringDatumAdapter(datum);
     }
 
     public Client getClient() {
@@ -28,28 +29,16 @@ public class Afspraak implements Comparable<Afspraak> {
         return zorgpartner;
     }
 
-    public String getDatum(IFormat format) {
-        return date.getDatum(format);
-    }
-
-    public int getDag() {
-        return date.getDag();
-    }
-
-    public int getMaand() {
-        return date.getMaand();
-    }
-
-    public int getJaar() {
-        return date.getJaar();
+    public IDatum getDatum() {
+        return datum;
     }
 
     @Override
     public int compareTo(Afspraak afspraak) {
         return CompareFunctions.compareToChain(this, afspraak, Arrays.asList(
-                Afspraak::getJaar,
-                Afspraak::getMaand,
-                Afspraak::getDag,
+                A -> A.getDatum().getDag(),
+                A -> A.getDatum().getMaand(),
+                A -> A.getDatum().getJaar(),
                 A -> A.getClient().getNaam(),
                 A -> A.getZorgpartner().getNaam())
         );

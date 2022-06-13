@@ -13,6 +13,6 @@ public class NederlandsFormat implements IFormat{
 
     @Override
     public String[] getKeywords() {
-        return new String[]{"Client","Zorgpartner","Datum"};
+        return new String[]{"Client","Zorgpartner","StringDatumAdapter"};
     }
 }

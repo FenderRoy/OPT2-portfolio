@@ -10,8 +10,8 @@ class AfspraakTest {
 
         Afspraak afspraak = new Afspraak(null, null, "05/12");
 
-        assertEquals(afspraak.getDag(), 5);
-        assertEquals(afspraak.getMaand(), 12);
+        assertEquals(afspraak.getDatum().getDag(), 5);
+        assertEquals(afspraak.getDatum().getMaand(), 12);
     }
 
 }

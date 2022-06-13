@@ -75,8 +75,8 @@ class AgendaTest {
         ArrayList<Afspraak> afspraken = agenda.getAfspraken();
 
         assertEquals(afspraken.size(), 1);
-        assertEquals(afspraken.get(0).getMaand(), 01);
-        assertEquals(afspraken.get(0).getDag(), 06);
+        assertEquals(afspraken.get(0).getDatum().getMaand(), 01);
+        assertEquals(afspraken.get(0).getDatum().getDag(), 06);
         assertEquals(afspraken.get(0).getClient().getNaam(), client.getNaam());
         assertEquals(afspraken.get(0).getClient().getAdress(), client.getAdress());
         assertEquals(afspraken.get(0).getClient().getTelefoonNummer(), client.getTelefoonNummer());

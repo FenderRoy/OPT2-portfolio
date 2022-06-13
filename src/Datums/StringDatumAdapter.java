@@ -1,14 +1,14 @@
-package Helpers;
+package Datums;
 
 import formats.IFormat;
 
 import java.util.*;
-public class Datum implements IDatum {
+public class StringDatumAdapter implements IDatum {
     private int dag;
     private int maand;
     private int jaar;
 
-    public Datum(String datum){
+    public StringDatumAdapter(String datum){
         convertDatum( datum);
     }
 
@@ -31,13 +31,13 @@ public class Datum implements IDatum {
 
     public int getMaand() {
         return maand;
-    }
 
+    }
     public int getJaar() {
         return jaar;
     }
 
-    public String getDatum(IFormat format){
+    public String toString(IFormat format){
         return format.dateToString(getDag(), getMaand(), getJaar());
     }
 

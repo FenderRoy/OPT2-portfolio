@@ -9,20 +9,34 @@ import java.util.ArrayList;
 
 public abstract class Printer {
 
-    public abstract void printAfspraak(Afspraak afspraak, IFormat format);
+    private IFormat format;
 
-    public void printAgenda(Agenda agenda, IFormat format){
-        printAgenda(agenda.getAfspraken(), format);
+    public Printer(IFormat format){
+        this.format = format;
     }
 
-    public void printAgenda(Agenda agenda, IFormat format, int maand){
-        printAgenda(agenda.getAfspraken(maand), format);
+    public void setFormat(IFormat format) {
+        this.format = format;
     }
 
-    public void printAgenda(Agenda agenda, IFormat format, Persoon persoon){
-        printAgenda(agenda.getAfspraken(persoon), format);
+    public IFormat getFormat() {
+        return format;
     }
 
-    public abstract void printAgenda(ArrayList<Afspraak> afspraken, IFormat format);
+    public abstract void printAfspraak(Afspraak afspraak);
+
+    public void printAgenda(Agenda agenda){
+        printAgenda(agenda.getAfspraken());
+    }
+
+    public void printAgenda(Agenda agenda, int maand){
+        printAgenda(agenda.getAfspraken(maand));
+    }
+
+    public void printAgenda(Agenda agenda, Persoon persoon){
+        printAgenda(agenda.getAfspraken(persoon));
+    }
+
+    public abstract void printAgenda(ArrayList<Afspraak> afspraken);
 
 }
