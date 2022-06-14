@@ -10,5 +10,5 @@ public interface IDatum {
 
     int getJaar();
 
-    String toString(IFormat format);
+    String getString(IFormat format);
 }

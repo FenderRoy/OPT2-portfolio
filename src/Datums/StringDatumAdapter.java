@@ -37,7 +37,7 @@ public class StringDatumAdapter implements IDatum {
         return jaar;
     }
 
-    public String toString(IFormat format){
+    public String getString(IFormat format){
         return format.dateToString(getDag(), getMaand(), getJaar());
     }
 

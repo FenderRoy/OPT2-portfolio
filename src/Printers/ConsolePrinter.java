@@ -16,7 +16,7 @@ public class ConsolePrinter extends Printer {
         String[] keywords = getFormat().getKeywords();
         System.out.println(keywords[0]+": "+getFormat().getNaamFormat(afspraak.getClient().getNaam())+"\n" +
                 keywords[1]+": "+getFormat().getNaamFormat(afspraak.getZorgpartner().getNaam())+"\n" +
-                keywords[2]+": "+afspraak.getDatum().toString(getFormat())+"\n");
+                keywords[2]+": "+afspraak.getDatum().getString(getFormat())+"\n");
     }
 
     @Override
