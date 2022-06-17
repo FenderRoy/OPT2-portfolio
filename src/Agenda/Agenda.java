@@ -1,3 +1,5 @@
+package Agenda;
+
 import people.Client;
 import people.Persoon;
 import people.Zorgpartner;
@@ -30,7 +32,7 @@ public class Agenda {
         return nieuweAfspraken;
     }
     public ArrayList<Afspraak> getAfspraken(int maand) {
-        return getCertainAfspraken(e -> e.getMaand() == maand);
+        return getCertainAfspraken(e -> e.getDatum().getMaand() == maand);
     }
 
     public ArrayList<Afspraak> getAfspraken(Persoon persoon){

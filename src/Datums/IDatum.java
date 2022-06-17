@@ -1,3 +1,7 @@
+package Datums;
+
+import formats.IFormat;
+
 public interface IDatum {
 
     int getDag();
@@ -6,5 +10,5 @@ public interface IDatum {
 
     int getJaar();
 
-    String getDatum();
+    String getString(IFormat format);
 }

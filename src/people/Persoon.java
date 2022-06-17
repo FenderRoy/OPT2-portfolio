@@ -1,5 +1,7 @@
 package people;
 
+import java.util.Scanner;
+
 public abstract class Persoon {
     private String naam;
     private String telefoonNummer;

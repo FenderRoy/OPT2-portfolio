@@ -1,13 +1,15 @@
-import java.util.Date;
-import java.util.Scanner;
+package Datums;
 
+import formats.IFormat;
+
+import java.util.*;
 public class StringDatumAdapter implements IDatum {
     private int dag;
     private int maand;
     private int jaar;
 
     public StringDatumAdapter(String datum){
-        convertDatum(datum);
+        convertDatum( datum);
     }
 
     private void convertDatum(String datum){
@@ -20,7 +22,6 @@ public class StringDatumAdapter implements IDatum {
         } else{
             this.jaar = getCurrentJaar();
         }
-
         scanner.close();
     }
 
@@ -30,18 +31,18 @@ public class StringDatumAdapter implements IDatum {
 
     public int getMaand() {
         return maand;
-    }
 
+    }
     public int getJaar() {
         return jaar;
     }
 
-    public String getDatum(){
-        return getDag()+"/"+getMaand()+"/"+getJaar();
+    public String getString(IFormat format){
+        return format.dateToString(getDag(), getMaand(), getJaar());
     }
 
     private int getCurrentJaar(){
-        return new Date().getYear() + 1900;
+        return Calendar.getInstance().get(Calendar.YEAR);
     }
 
 

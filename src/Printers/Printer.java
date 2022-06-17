@@ -1,9 +1,27 @@
-import people.Client;
+package Printers;
+
+import Agenda.Afspraak;
+import Agenda.Agenda;
+import formats.IFormat;
 import people.Persoon;
 
 import java.util.ArrayList;
 
 public abstract class Printer {
+
+    private IFormat format;
+
+    public Printer(IFormat format){
+        this.format = format;
+    }
+
+    public void setFormat(IFormat format) {
+        this.format = format;
+    }
+
+    public IFormat getFormat() {
+        return format;
+    }
 
     public abstract void printAfspraak(Afspraak afspraak);
 
