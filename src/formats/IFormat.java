@@ -6,8 +6,7 @@ public interface IFormat {
 
     String getNaamFormat(String naam);
 
-    String[] getKeywords();
-
+    String getLanguageName();
     //test
 
 }

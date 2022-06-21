@@ -12,7 +12,8 @@ public class NederlandsFormat implements IFormat{
     }
 
     @Override
-    public String[] getKeywords() {
-        return new String[]{"Client","Zorgpartner","StringDatumAdapter"};
+    public String getLanguageName() {
+        return "nederlands";
     }
+
 }

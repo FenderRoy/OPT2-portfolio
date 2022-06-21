@@ -1,10 +1,12 @@
 package Printers;
 
 import Agenda.Afspraak;
+import Generic.ConsoleWriter;
+import Generic.LanguageController;
 import formats.IFormat;
 
 import java.util.ArrayList;
-
+import java.util.Arrays;
 public class ConsolePrinter extends Printer {
 
     public ConsolePrinter(IFormat format){
@@ -13,10 +15,12 @@ public class ConsolePrinter extends Printer {
 
     @Override
     public void printAfspraak(Afspraak afspraak){
-        String[] keywords = getFormat().getKeywords();
-        System.out.println(keywords[0]+": "+getFormat().getNaamFormat(afspraak.getClient().getNaam())+"\n" +
-                keywords[1]+": "+getFormat().getNaamFormat(afspraak.getZorgpartner().getNaam())+"\n" +
-                keywords[2]+": "+afspraak.getDatum().getString(getFormat())+"\n");
+        ArrayList<String> keywords = LanguageController.getLanguage(getFormat().getLanguageName());
+        ConsoleWriter.printVariableList(keywords, afspraak, Arrays.asList(
+                A -> getFormat().getNaamFormat(A.getClient().getNaam()),
+                A -> getFormat().getNaamFormat(A.getZorgpartner().getNaam()),
+                A -> A.getDatum().getString(getFormat())
+        ));
     }
 
     @Override

@@ -19,7 +19,5 @@ public class UnitedStatesFormat implements IFormat{
     }
 
     @Override
-    public String[] getKeywords() {
-        return new String[]{"Client","Caretaker","Date"};
-    }
+    public String getLanguageName() { return "english"; }
 }
