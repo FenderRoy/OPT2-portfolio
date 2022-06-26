@@ -8,7 +8,7 @@ import java.util.function.Function;
 
 public class Agenda {
 
-    private ArrayList<Afspraak> afspraken;
+    private final ArrayList<Afspraak> afspraken;
 
     public Agenda(){
         afspraken = new ArrayList<>();
@@ -30,7 +30,7 @@ public class Agenda {
         return nieuweAfspraken;
     }
     public ArrayList<Afspraak> getAfspraken(int maand) {
-        return getCertainAfspraken(e -> e.getMaand() == maand);
+        return getCertainAfspraken(e -> e.getDatum().getMaand() == maand);
     }
 
     public ArrayList<Afspraak> getAfspraken(Persoon persoon){

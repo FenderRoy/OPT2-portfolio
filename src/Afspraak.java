@@ -1,10 +1,13 @@
+import Generic.CompareFunctions;
 import people.Client;
 import people.Zorgpartner;
 
+import java.util.Arrays;
+
 public class Afspraak implements Comparable<Afspraak> {
 
-    private Client client;
-    private Zorgpartner zorgpartner;
+    private final Client client;
+    private final Zorgpartner zorgpartner;
     IDatum datum;
 
     public Afspraak(Client client, Zorgpartner zorgpartner, String datumString) {
@@ -22,42 +25,18 @@ public class Afspraak implements Comparable<Afspraak> {
         return zorgpartner;
     }
 
-    public String getDatum() {
-        return datum.getDatum();
-    }
-
-    public int getDag() {
-        return datum.getDag();
-    }
-
-    public int getMaand() {
-        return datum.getMaand();
-    }
-
-    public int getJaar() {
-        return datum.getJaar();
+    public IDatum getDatum() {
+        return datum;
     }
 
     @Override
     public int compareTo(Afspraak afspraak) {
-        if(getJaar() > afspraak.getJaar()){
-            return 1;
-        }
-        if(getJaar() < afspraak.getJaar()){
-            return -1;
-        }
-        if(getMaand() > afspraak.getMaand()){
-            return 1;
-        }
-        if(getMaand() < afspraak.getMaand()){
-            return -1;
-        }
-        if(getDag() > afspraak.getDag()){
-            return 1;
-        }
-        if(getDag() < afspraak.getDag()){
-            return -1;
-        }
-        return 0;
+        return CompareFunctions.compareToChain(this, afspraak, Arrays.asList(
+                A -> A.getDatum().getDag(),
+                A -> A.getDatum().getMaand(),
+                A -> A.getDatum().getJaar(),
+                A -> A.getClient().getNaam(),
+                A -> A.getZorgpartner().getNaam())
+        );
     }
 }
